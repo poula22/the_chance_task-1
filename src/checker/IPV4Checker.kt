@@ -70,7 +70,7 @@ private fun runCorrectAnswersTestCases() {
 
     checkResult(
         description = "when ipv4 is 255.255.255.255 then return true",
-        actualResult = isIPV4Valid("250.100.10.1"),
+        actualResult = isIPV4Valid("255.255.255.255"),
         expectedResult = true
     )
 
