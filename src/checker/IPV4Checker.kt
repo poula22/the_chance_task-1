@@ -49,7 +49,7 @@ private fun runValidationTestCases() {
     )
 
     checkResult(
-        description = "when ipv4 is empty seperated with dots, return false",
+        description = "when ipv4 is empty seperated with dots then return false",
         actualResult = isIPV4Valid("..."),
         expectedResult = false
     )
