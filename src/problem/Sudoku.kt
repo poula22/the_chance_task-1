@@ -51,6 +51,9 @@ private fun areSudokuColumnsValid(board: List<List<String>>, size: Int): Boolean
     return true
 }
 
+/**
+ * Time complexity: O(n2)
+ * */
 private fun areSudokuGridsValid(board: List<List<String>>, divisionFactor: Int): Boolean {
     for (boxRow in 0..<divisionFactor) {
         for (boxCol in 0..<divisionFactor) {
@@ -67,6 +70,9 @@ private fun areSudokuGridsValid(board: List<List<String>>, divisionFactor: Int):
     return true
 }
 
+/**
+ * Time complexity: O(n2)
+ * */
 private fun areSudokuNumbersValid(
     board: List<List<String>>,
     size: Int,
