@@ -6,7 +6,7 @@ fun checkResult(
     expectedResult: Boolean
 ) {
     when {
-        actualResult == expectedResult -> println("Success - $description")
-        else -> println("Failed - $description")
+        actualResult == expectedResult -> println("✅Success - $description")
+        else -> println("❌Failed - $description")
     }
 }

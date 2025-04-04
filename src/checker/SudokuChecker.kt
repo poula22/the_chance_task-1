@@ -9,7 +9,6 @@ fun runSudokuChecks() {
     testCorrectAnswers()
 }
 
-/** this function checks bounds */
 private fun runEdgeCases() {
     //empty board
     checkResult(
@@ -97,10 +96,10 @@ private fun runValidationTestCases() {
         description = "when 2 duplicate values found in a column then return false",
         actualResult = isValidSudoku(
             listOf(
-                listOf("2", "-", "-", "-"),
-                listOf("-", "-", "-", "-"),
-                listOf("-", "-", "-", "-"),
-                listOf("2", "-", "-", "-")
+                listOf("2", "4", "1", "3"),
+                listOf("1", "3", "-", "2"),
+                listOf("3", "2", "4", "1"),
+                listOf("2", "1", "3", "4")
             )
         ),
         expectedResult = false
@@ -111,10 +110,10 @@ private fun runValidationTestCases() {
         description = "when 2 duplicate values found in a grid then return false",
         actualResult = isValidSudoku(
             listOf(
-                listOf("2", "-", "-", "-"),
-                listOf("-", "2", "-", "-"),
-                listOf("-", "-", "-", "-"),
-                listOf("-", "-", "-", "-")
+                listOf("1", "2", "3", "4"),
+                listOf("3", "1", "2", "-"),
+                listOf("2", "-", "4", "3"),
+                listOf("4", "3", "1", "2")
             )
         ),
         expectedResult = false
@@ -151,7 +150,10 @@ private fun runValidationTestCases() {
         description = "when input is characters or wrong input then return false",
         actualResult = isValidSudoku(
             listOf(
-                listOf("a", "B", "~", "!")
+                listOf("a", "b", "1", "2"),
+                listOf("c", "d", "3", "4"),
+                listOf("v", "2", "2", "!"),
+                listOf("1", "3", "4", "-")
             )
         ),
         expectedResult = false
