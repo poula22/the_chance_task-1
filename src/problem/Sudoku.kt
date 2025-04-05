@@ -18,9 +18,9 @@ fun isValidSudoku(board: List<List<String>>): Boolean {
 
 private fun isBoardValid(board: List<List<String>>, divisionFactor: Int): Boolean {
     return areSudokuNumbersValid(board)
-        .and(areSudokuColumnsValid(board))
-        .and(areSudokuRowsValid(board))
-        .and(areSudokuGridsValid(board, divisionFactor))
+            && areSudokuColumnsValid(board)
+            && areSudokuRowsValid(board)
+            && areSudokuGridsValid(board, divisionFactor)
 }
 
 /**
