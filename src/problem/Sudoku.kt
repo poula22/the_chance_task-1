@@ -10,8 +10,8 @@ fun isValidSudoku(board: List<List<String>>): Boolean {
     if (board.isEmpty()) return false
     val columnSize = board[0].size
     val rowSize = board.size
-    val divisionFactor = sqrt(rowSize.toDouble()).toInt()
     if (columnSize < 4 || columnSize != rowSize) return false
+    val divisionFactor = sqrt(rowSize.toDouble()).toInt()
     if (columnSize != divisionFactor * divisionFactor) return false
     return isBoardValid(board, divisionFactor)
 }
@@ -68,20 +68,16 @@ private fun areSudokuColumnsValid(board: List<List<String>>): Boolean {
     return true
 }
 
-/**
- * Time complexity: O(n2)
- * */
 private fun areSudokuGridsValid(board: List<List<String>>, divisionFactor: Int): Boolean {
-    for (boxRow in 0..<divisionFactor) {
-        for (boxCol in 0..<divisionFactor) {
-            val numbersSet = mutableSetOf<String>()
-            for (row in 0..<divisionFactor) {
-                for (col in 0..<divisionFactor) {
-                    val element = board[boxRow * divisionFactor + row][boxCol * divisionFactor + col]
-                    if (element == "-") continue
-                    if (!numbersSet.add(element)) return false
-                }
-            }
+    val grids = Array(board.size) { mutableSetOf<String>() }
+    for (rowIndex in board.indices) {
+        val gridRowIndex = (rowIndex / divisionFactor) * divisionFactor
+        for (columnIndex in board.indices) {
+            val element = board[rowIndex][columnIndex]
+            if (element == "-") continue
+            val gridColumnIndex = columnIndex / divisionFactor
+            val gridIndex = gridRowIndex + gridColumnIndex
+            if (!grids[gridIndex].add(element)) return false
         }
     }
     return true
