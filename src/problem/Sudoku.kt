@@ -71,12 +71,12 @@ private fun areSudokuColumnsValid(board: List<List<String>>): Boolean {
 private fun areSudokuGridsValid(board: List<List<String>>, divisionFactor: Int): Boolean {
     val grids = Array(board.size) { mutableSetOf<String>() }
     for (rowIndex in board.indices) {
-        val gridRowIndex = (rowIndex / divisionFactor) * divisionFactor
+        val gridRowFactor = (rowIndex / divisionFactor) * divisionFactor
         for (columnIndex in board.indices) {
             val element = board[rowIndex][columnIndex]
             if (element == "-") continue
-            val gridColumnIndex = columnIndex / divisionFactor
-            val gridIndex = gridRowIndex + gridColumnIndex
+            val gridColumnFactor = columnIndex / divisionFactor
+            val gridIndex = gridRowFactor + gridColumnFactor
             if (!grids[gridIndex].add(element)) return false
         }
     }
