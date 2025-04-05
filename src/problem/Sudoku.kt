@@ -10,7 +10,7 @@ fun isValidSudoku(board: List<List<String>>): Boolean {
     if (board.isEmpty()) return false
     val columnSize = board[0].size
     val rowSize = board.size
-    if (columnSize < 4 || columnSize != rowSize) return false
+    if (columnSize != rowSize) return false
     val divisionFactor = sqrt(rowSize.toDouble()).toInt()
     if (columnSize != divisionFactor * divisionFactor) return false
     return isBoardValid(board, divisionFactor)
